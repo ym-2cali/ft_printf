@@ -38,17 +38,25 @@ int ft_printf(const char *str, ...)
                s = va_arg(args, char *);
                ret = ft_putstr(s); 
             }
+            else if (str[i] == 'd' || str[i] == 'i')
+                ret = ft_putnbr(va_arg(args, int));
+            else if (str[i] == 'u')
+            {
+                ret = ft_putunbr(va_arg(args, unsigned int));
+            }
         }
         else 
         {
-            ret += write(1, &str[i++], 1);
+            ret += write(1, &str[i], 1);
         }
         i++;
     }
     va_end(args);
     return (ret);
 }
+#include <stdio.h>
+
 int main()
 {
-    ft_printf("%c cc %s",'c',"yahya");
+   printf("%d\n", ft_printf("%d", 1111111115));
 }
