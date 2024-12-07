@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:56:10 by yael-maa          #+#    #+#             */
-/*   Updated: 2024/12/07 18:49:19 by yael-maa         ###   ########.fr       */
+/*   Updated: 2024/12/07 21:30:13 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int ft_putstr(char  *str)
 {
     int i;
 
+    if (!str)
+        return (write(1, "(null)", 6));
     i = -1;
     while (str[++i])
         write(1, &str[i], 1);

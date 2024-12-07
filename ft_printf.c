@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:56:39 by yael-maa          #+#    #+#             */
-/*   Updated: 2024/12/07 18:53:28 by yael-maa         ###   ########.fr       */
+/*   Updated: 2024/12/07 21:34:53 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,18 @@ int ft_printf(const char *str, ...)
     va_end(args);
     return (ret);
 }
-#include <stdio.h>
+// #include <stdio.h>
 
-int main()
-{
-    char *str;
+// int main()
+// {
+    // char *str;
 
-    str = "ab";
-    // printf("--%d--", ft_putnbr(-1));
-    // printf("--%d--", ft_puthexa(-1));
-    // ft_puthexa(18446744073709551615UL);
-    // printf("%lu\n", -1)
-    ft_printf("%d\n", printf("hello world %p\n", &str[1]));
-    printf("%d\n", ft_printf("hello world %p\n", &str[1]));
-} 
+    // str = "ab";
+    // // printf("--%d--", ft_putnbr(-1));
+    // // printf("--%d--", ft_puthexa(-1));
+    // // ft_puthexa(18446744073709551615UL);
+    // // printf("%lu\n", -1)
+    // ft_printf("%d\n", printf("hello world %p\n", &str[1]));
+    // printf("%d\n", ft_printf("hello world %p\n", &str[1]));
+//     ft_printf("--%d--", ft_printf("NULL %s NULL", NULL));
+// } 
