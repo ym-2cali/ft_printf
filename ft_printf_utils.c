@@ -6,7 +6,7 @@
 /*   By: yael-maa <yael-maa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:56:10 by yael-maa          #+#    #+#             */
-/*   Updated: 2024/12/07 21:30:13 by yael-maa         ###   ########.fr       */
+/*   Updated: 2024/12/08 20:12:15 by yael-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int ft_putnbr(int nb)
 
     ret = 0;
     if (nb == -2147483648)
-        ret += write(1, "-2147483648", 12);
+        ret += write(1, "-2147483648", 11);
     else if (nb < 0)
     {
         ret += write(1, "-", 1);
@@ -74,7 +74,7 @@ int ft_puthexa(unsigned long nb)
 {
     char *str;
     int ret;
-
+    
     ret = 0;
     str = "0123456789abcdef";
     if (nb < 16)
@@ -86,6 +86,7 @@ int ft_puthexa(unsigned long nb)
     }
     return (ret);
 }
+
 int FT_PUTHEXA(unsigned long nb)
 {
     char *str;
@@ -93,8 +94,10 @@ int FT_PUTHEXA(unsigned long nb)
     
     ret = 0;
     str = "0123456789ABCDEF";
-    if (nb < 16)
+    if (nb < 16 && nb != 0)
         ret += write(1, &str[nb], 1);
+    else if (nb == 0)
+        ret += write(1, "0", 1);
     else
     {
         ret += FT_PUTHEXA(nb / 16);
@@ -107,7 +110,11 @@ int ft_put_address(void *ptr)
     int ret;
     
     ret = 0;
-    ret += write(1, "0x", 2);
-    ret += ft_puthexa((unsigned long)ptr);
+    write(1, "0x", 2);
+    ret += 2;
+    if (ptr == NULL)
+        ret += write(1, "0", 1);
+    else
+        ret += ft_puthexa((unsigned long)ptr);
     return (ret);
 }
