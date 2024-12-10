@@ -14,7 +14,7 @@ $(NAME):$(OFILES)
 	@ar rc $(NAME) $(OFILES)
 
 %.o: %.c ft_printf.h
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OFILES)
